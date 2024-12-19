@@ -46,13 +46,28 @@
             border-collapse: separate;
             border-spacing: 0;
         }
-        .table th {
-            padding: 10px;
-            border: 3px dashed transparent;
-            border-image: linear-gradient(to right, #00ff99, #ff66cc) 1;
-            background: linear-gradient(145deg, #181818, #202020);
-            color: #ff66cc;
-        }
+.table th {
+    padding: 10px;
+    border: 3px dashed transparent; /* Utilise un style dashed */
+    position: relative; /* Pour placer les pseudo-éléments */
+    background: linear-gradient(145deg, #181818, #202020);
+    color: #ff66cc;
+    border-radius: 8px; /* Coins arrondis pour un effet fluide */
+    overflow: hidden;
+}
+
+.table th::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 3px dotted transparent;
+    border-image: linear-gradient(to right, #00ff99, #ff66cc) 1;
+    border-radius: 8px;
+    z-index: -1; /* Place derrière le contenu */
+}
         .table td {
             padding: 10px;
             border: 3px dashed #00ccff;
