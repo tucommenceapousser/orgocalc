@@ -81,6 +81,42 @@
             border-radius: 10px;
             margin-top: 20px;
         }
+        /* Styliser l'image avec des bordures, ombres et effets */
+.styled-image {
+    width: 100%;
+    height: auto;
+    border: 5px solid #00ff99; /* Bordure verte fluo */
+    border-radius: 15px; /* Coins arrondis */
+    box-shadow: 0px 0px 15px rgba(0, 255, 153, 0.5); /* Ombre fluo autour de l'image */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Effet de transition */
+}
+
+/* Ajouter un effet au survol de l'image */
+.styled-image:hover {
+    transform: scale(1.05); /* Agrandissement de l'image */
+    box-shadow: 0px 0px 25px rgba(0, 255, 153, 0.8); /* Ombre plus marquée */
+}
+
+/* Styliser spécifiquement le h3 avec la classe styled-title */
+.styled-title {
+    font-family: 'Arial', sans-serif;
+    color: #00ff99; /* Couleur du texte */
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    animation: pulse 1.5s infinite alternate; /* Animation de pulsation */
+}
+
+/* Animation de pulsation pour l'en-tête */
+@keyframes pulse {
+    0% {
+        color: #ff66cc;
+    }
+    100% {
+        color: #00ff99;
+    }
+}
     </style>
 </head>
 <body>
@@ -122,9 +158,9 @@
             <button type="submit" class="btn btn-primary">Calculer</button>
         </form>
 <div class="col-md-6 text-center">
-    <h3>Schéma de la pyramide</h3>
-    <!-- Remplacer le SVG par une image -->
-    <img src="https://f.top4top.io/p_3275gsku50.png" alt="Schéma de la pyramide" style="width: 100%; height: auto;">
+    <h3 class="styled-title">Schéma de la pyramide</h3>
+    <!-- Image avec classe de style -->
+    <img src="https://f.top4top.io/p_3275gsku50.png" alt="Schéma de la pyramide" class="styled-image">
 </div>
         <!-- Tableau -->
         <div class="table-container">
