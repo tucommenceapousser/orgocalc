@@ -124,25 +124,31 @@
 <div class="col-md-6 text-center">
     <h3>Schéma de la pyramide</h3>
     <svg viewBox="0 0 200 200" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-        <!-- Base de la pyramide (perspective) -->
-        <polygon points="60,150 140,150 120,170 80,170" fill="none" stroke="#00ff99" stroke-width="2" />
-        
-        <!-- Faces de la pyramide -->
-        <line x1="100" y1="50" x2="60" y2="150" stroke="#00ff99" stroke-width="2" />
-        <line x1="100" y1="50" x2="140" y2="150" stroke="#00ff99" stroke-width="2" />
-        <line x1="100" y1="50" x2="80" y2="170" stroke="#00ff99" stroke-width="2" />
-        <line x1="100" y1="50" x2="120" y2="170" stroke="#00ff99" stroke-width="2" />
+        <!-- Base carrée -->
+        <polygon points="50,150 150,150 120,180 80,180" fill="none" stroke="#00ff99" stroke-width="2" />
 
-        <!-- Longueur d'un côté -->
-        <line x1="60" y1="150" x2="140" y2="150" stroke="#ff66cc" stroke-width="2" stroke-dasharray="4" />
-        <text x="90" y="145" fill="#ff66cc" font-size="12" font-family="Arial">Côté</text>
-        
-        <!-- Hauteur (verticale) -->
-        <line x1="100" y1="50" x2="100" y2="150" stroke="#ff66cc" stroke-width="2" stroke-dasharray="4" />
-        <text x="105" y="100" fill="#ff66cc" font-size="12" font-family="Arial" transform="rotate(-90, 105, 100)">Hauteur</text>
+        <!-- Arêtes de la pyramide -->
+        <line x1="100" y1="40" x2="50" y2="150" stroke="#00ff99" stroke-width="2" />
+        <line x1="100" y1="40" x2="150" y2="150" stroke="#00ff99" stroke-width="2" />
+        <line x1="100" y1="40" x2="80" y2="180" stroke="#00ff99" stroke-width="2" />
+        <line x1="100" y1="40" x2="120" y2="180" stroke="#00ff99" stroke-width="2" />
 
-        <!-- Étiquette sommet -->
-        <text x="95" y="40" fill="#00ff99" font-size="12" font-family="Arial">Sommet</text>
+        <!-- Arêtes cachées -->
+        <line x1="50" y1="150" x2="80" y2="180" stroke="#00ff99" stroke-width="2" stroke-dasharray="4" />
+        <line x1="150" y1="150" x2="120" y2="180" stroke="#00ff99" stroke-width="2" stroke-dasharray="4" />
+
+        <!-- Longueur du côté -->
+        <line x1="50" y1="150" x2="150" y2="150" stroke="#ff66cc" stroke-width="2" stroke-dasharray="4" />
+        <text x="95" y="145" fill="#ff66cc" font-size="12" font-family="Arial">Côté</text>
+
+        <!-- Hauteur -->
+        <line x1="100" y1="40" x2="100" y2="150" stroke="#ff66cc" stroke-width="2" stroke-dasharray="4" />
+        <text x="105" y="95" fill="#ff66cc" font-size="12" font-family="Arial" transform="rotate(-90, 105, 95)">Hauteur</text>
+
+        <!-- Annotation de la formule -->
+        <text x="30" y="190" fill="#ffffff" font-size="12" font-family="Arial">
+            Volume = (1/3) × côté × côté × hauteur
+        </text>
     </svg>
 </div>
         <!-- Tableau -->
