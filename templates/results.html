@@ -3,95 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Résultats du Calcul - Trhacknon</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <title>Résultats - Trhacknon</title>
     <style>
         body {
             background-color: #121212;
             color: #00ff99;
+            font-family: Arial, sans-serif;
         }
         .container {
-            margin-top: 50px;
+            margin: 50px auto;
+            width: 80%;
+            text-align: center;
             border: 2px solid #00ff99;
             padding: 20px;
             border-radius: 10px;
-        }
-        h1 {
-            text-align: center;
-            color: #00ffcc;
-        }
-        .table-container {
-            margin-top: 30px;
-        }
-        .table {
-            color: #00ff99;
-        }
-        .table th, .table td {
-            border: 1px solid #00ff99;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Résultats du Calcul des Ondes et Volumes</h1>
-
-        <h3>Ondes Scalaires</h3>
-        <p>{{ scalaires }}</p>
-
-        <h3>Ondes Électromagnétiques</h3>
-        <p>{{ electromagnetiques }}</p>
-
-        <h3>Volumes des Matériaux</h3>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Matériau</th>
-                    <th>Volume (cm³)</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Cuivre</td>
-                    <td>{{ volumes['cuivre'] }}</td>
-                </tr>
-                <tr>
-                    <td>Aluminium</td>
-                    <td>{{ volumes['aluminium'] }}</td>
-                </tr>
-                <tr>
-                    <td>Fer</td>
-                    <td>{{ volumes['fer'] }}</td>
-                </tr>
-                <tr>
-                    <td>Quartz</td>
-                    <td>{{ volumes['quartz'] }}</td>
-                </tr>
-                <tr>
-                    <td>Améthyste</td>
-                    <td>{{ volumes['amethyste'] }}</td>
-                </tr>
-                <tr>
-                    <td>Fluorite</td>
-                    <td>{{ volumes['fluorite'] }}</td>
-                </tr>
-                <tr>
-                    <td>Obsidienne</td>
-                    <td>{{ volumes['obsidienne'] }}</td>
-                </tr>
-                <tr>
-                    <td>Tourmaline</td>
-                    <td>{{ volumes['tourmaline'] }}</td>
-                </tr>
-                <tr>
-                    <td>Shungite</td>
-                    <td>{{ volumes['shungite'] }}</td>
-                </tr>
-                <tr>
-                    <td>Résine</td>
-                    <td>{{ volumes['resine'] }}</td>
-                </tr>
-            </tbody>
-        </table>
+        <h1>Résultats</h1>
+        <p><strong>Volume : </strong>{{ volume|round(2) }} cm³</p>
+        <p><strong>Poids estimé : </strong>{{ poids_total|round(2) }} g</p>
+        
+        {% if scalaires and electromagnetiques %}
+            <h2>Ondes Calculées</h2>
+            <p><strong>Ondes Scalaires : </strong>{{ scalaires|round(2) }}</p>
+            <p><strong>Ondes Électromagnétiques : </strong>{{ electromagnetiques|round(2) }}</p>
+        {% endif %}
     </div>
 </body>
 </html>
