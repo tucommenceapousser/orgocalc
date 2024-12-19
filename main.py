@@ -2,26 +2,12 @@ from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
-# Densités (en g/cm³) pour les matériaux
-densites = {
-    'cuivre': 8.96,  # g/cm³
-    'aluminium': 2.70,  # g/cm³
-    'fer': 7.87,  # g/cm³
-    'quartz': 2.65,  # g/cm³
-    'amethyste': 2.65,  # g/cm³
-    'fluorite': 3.18,  # g/cm³
-    'obsidienne': 2.35,  # g/cm³
-    'tourmaline': 3.06,  # g/cm³
-    'shungite': 1.8,  # g/cm³
-    'resine': 1.1  # g/cm³ (exemple arbitraire)
-}
-
 # Page d'accueil
 @app.route('/')
 def home():
     return render_template('index.html')
 
-# Calcul des ondes et des volumes
+# Calcul des ondes et du volume de la pyramide
 @app.route('/calculate', methods=['POST'])
 def calculate():
     # Récupération des données
@@ -35,20 +21,6 @@ def calculate():
     tourmaline = float(request.form.get('tourmaline', 0))
     shungite = float(request.form.get('shungite', 0))
     resine = float(request.form.get('resine', 0))
-
-    # Calcul des volumes en cm³ pour chaque matériau
-    volumes = {
-        'cuivre': cuivre / densites['cuivre'],
-        'aluminium': aluminium / densites['aluminium'],
-        'fer': fer / densites['fer'],
-        'quartz': quartz / densites['quartz'],
-        'amethyste': amethyste / densites['amethyste'],
-        'fluorite': fluorite / densites['fluorite'],
-        'obsidienne': obsidienne / densites['obsidienne'],
-        'tourmaline': tourmaline / densites['tourmaline'],
-        'shungite': shungite / densites['shungite'],
-        'resine': resine / densites['resine']
-    }
 
     # Calcul des ondes (pondérations arbitraires pour l'exemple)
     ondes_scalaires = (
@@ -64,12 +36,19 @@ def calculate():
         resine * 0.8
     )
 
+    # Récupération des dimensions de la pyramide
+    base = float(request.form.get('base', 0))
+    hauteur = float(request.form.get('hauteur', 0))
+
+    # Calcul du volume de la pyramide
+    volume = (base * hauteur) / 3
+
     # Transmission des résultats à la page
     return render_template(
-        'results.html',
+        'index.html',
         scalaires=ondes_scalaires,
         electromagnetiques=ondes_electromagnetiques,
-        volumes=volumes  # Passer les volumes calculés à la page
+        volume=volume
     )
 
 if __name__ == '__main__':
