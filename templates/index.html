@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calcul des Ondes et Volume - Trhacknon</title>
+    <title>Calculateur Orgonites</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <style>
         body {
@@ -16,18 +16,19 @@
             padding: 20px;
             border-radius: 10px;
         }
-        h1, h3 {
+        h1 {
             text-align: center;
             color: #00ffcc;
         }
-        .table-container {
-            margin-top: 30px;
-        }
-        .table {
+        label {
             color: #00ff99;
         }
-        .table th, .table td {
-            border: 1px solid #00ff99;
+        .btn-primary {
+            background-color: #00ffcc;
+            border: none;
+        }
+        .btn-primary:hover {
+            background-color: #009966;
         }
         .result {
             margin-top: 20px;
@@ -39,11 +40,19 @@
 </head>
 <body>
     <div class="container">
-        <h1>Calcul des Ondes et Volume de Pyramide</h1>
-        
-        <!-- Formulaire de calcul des ondes -->
+        <h1>Calculateur Orgonites</h1>
         <form method="POST" action="/calculate">
-            <h3>Métaux</h3>
+            <h3>Calculer le Volume d'une Pyramide</h3>
+            <div class="mb-3">
+                <label for="side" class="form-label">Longueur d'un côté de la base</label>
+                <input type="number" class="form-control" id="side" name="side">
+            </div>
+            <div class="mb-3">
+                <label for="height" class="form-label">Hauteur</label>
+                <input type="number" class="form-control" id="height" name="height">
+            </div>
+
+            <h3>Calculer les Ondes Gérées</h3>
             <div class="mb-3">
                 <label for="cuivre" class="form-label">Cuivre (g)</label>
                 <input type="number" class="form-control" id="cuivre" name="cuivre">
@@ -56,11 +65,8 @@
                 <label for="fer" class="form-label">Fer (g)</label>
                 <input type="number" class="form-control" id="fer" name="fer">
             </div>
-
-            <!-- Cristaux -->
-            <h3>Cristaux</h3>
             <div class="mb-3">
-                <label for="quartz" class="form-label">Cristal de quartz (g)</label>
+                <label for="quartz" class="form-label">Quartz (g)</label>
                 <input type="number" class="form-control" id="quartz" name="quartz">
             </div>
             <div class="mb-3">
@@ -71,9 +77,6 @@
                 <label for="fluorite" class="form-label">Fluorite (g)</label>
                 <input type="number" class="form-control" id="fluorite" name="fluorite">
             </div>
-
-            <!-- Pierres -->
-            <h3>Pierres</h3>
             <div class="mb-3">
                 <label for="obsidienne" class="form-label">Obsidienne (g)</label>
                 <input type="number" class="form-control" id="obsidienne" name="obsidienne">
@@ -86,23 +89,9 @@
                 <label for="shungite" class="form-label">Shungite (g)</label>
                 <input type="number" class="form-control" id="shungite" name="shungite">
             </div>
-
-            <!-- Résine -->
-            <h3>Résine</h3>
             <div class="mb-3">
-                <label for="resine" class="form-label">Résine organique (g)</label>
+                <label for="resine" class="form-label">Résine (g)</label>
                 <input type="number" class="form-control" id="resine" name="resine">
-            </div>
-
-            <!-- Calcul du volume de la pyramide -->
-            <h3>Volume de la Pyramide</h3>
-            <div class="mb-3">
-                <label for="base" class="form-label">Base de la pyramide (cm²)</label>
-                <input type="number" class="form-control" id="base" name="base">
-            </div>
-            <div class="mb-3">
-                <label for="hauteur" class="form-label">Hauteur de la pyramide (cm)</label>
-                <input type="number" class="form-control" id="hauteur" name="hauteur">
             </div>
 
             <button type="submit" class="btn btn-primary">Calculer</button>
@@ -110,82 +99,10 @@
 
         <!-- Résultat -->
         <div class="result">
-            {% if scalaires %}
-                <h3>Résultat du Calcul des Ondes :</h3>
-                <p>Ondes Scalaires : {{ scalaires }}</p>
-                <p>Ondes Électromagnétiques : {{ electromagnetiques }}</p>
+            {% if result %}
+                <h3>Résultat :</h3>
+                <p>{{ result }}</p>
             {% endif %}
-            
-            {% if volume %}
-                <h3>Résultat du Volume de la Pyramide :</h3>
-                <p>Volume de la pyramide : {{ volume }} cm³</p>
-            {% endif %}
-        </div>
-
-        <!-- Tableau des matériaux -->
-        <div class="table-container">
-            <h3>Tableau des Matériaux</h3>
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>Type</th>
-                        <th>Matériau</th>
-                        <th>Propriétés</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Métaux</td>
-                        <td>Cuivre</td>
-                        <td>Excellent conducteur d'énergie.</td>
-                    </tr>
-                    <tr>
-                        <td>Métaux</td>
-                        <td>Aluminium</td>
-                        <td>Léger et bon réflecteur d'énergie.</td>
-                    </tr>
-                    <tr>
-                        <td>Métaux</td>
-                        <td>Fer</td>
-                        <td>Bon amplificateur d'ondes électromagnétiques.</td>
-                    </tr>
-                    <tr>
-                        <td>Cristaux</td>
-                        <td>Quartz</td>
-                        <td>Amplifie les vibrations énergétiques.</td>
-                    </tr>
-                    <tr>
-                        <td>Cristaux</td>
-                        <td>Améthyste</td>
-                        <td>Aide à calmer l'esprit et à équilibrer l'énergie.</td>
-                    </tr>
-                    <tr>
-                        <td>Cristaux</td>
-                        <td>Fluorite</td>
-                        <td>Protège contre les ondes négatives.</td>
-                    </tr>
-                    <tr>
-                        <td>Pierres</td>
-                        <td>Obsidienne</td>
-                        <td>Absorbe les énergies négatives.</td>
-                    </tr>
-                    <tr>
-                        <td>Pierres</td>
-                        <td>Tourmaline</td>
-                        <td>Excellente pour la protection énergétique.</td>
-                    </tr>
-                    <tr>
-                        <td>Pierres</td>
-                        <td>Shungite</td>
-                        <td>Neutralise les radiations électromagnétiques.</td>
-                    </tr>
-                    <tr>
-                        <td>Résine</td>
-                        <td>Résine organique</td>
-                        <td>Lie les matériaux pour amplifier l'énergie globale.</td>
-                    </tr>
-                </tbody>
-            </table>
         </div>
     </div>
 </body>
