@@ -11,79 +11,61 @@
             color: #00ff99;
             font-family: Arial, sans-serif;
         }
-
         .container {
             margin-top: 50px;
-            border: 2px solid #ff00ff;
+            border: 3px dashed #00ff99;
             padding: 20px;
             border-radius: 15px;
-            box-shadow: 0 0 15px rgba(255, 0, 255, 0.5);
+            background: linear-gradient(145deg, #1a1a1a, #101010);
+            box-shadow: 0 4px 10px rgba(0, 255, 153, 0.2);
         }
-
         h1, h3 {
             text-align: center;
-            color: #ff66ff;
-            text-shadow: 2px 2px 5px #00ff99;
+            color: #00ccff;
+            text-shadow: 2px 2px 4px rgba(0, 204, 255, 0.6);
         }
-
-        .table-container {
-            margin-top: 30px;
-            border-top: 2px solid #00ffff;
-            padding-top: 20px;
-        }
-
-        .table {
-            color: #00ff99;
-            border: 1px solid #ff00ff;
-        }
-
-        .table th, .table td {
-            border: 1px solid #ff00ff;
-        }
-
         .form-label {
-            color: #ff00cc;
+            color: #ff66cc;
         }
-
         .btn-primary {
             background-color: #00ff99;
             border-color: #00ff99;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, transform 0.2s;
         }
-
         .btn-primary:hover {
-            background-color: #ff00ff;
-            border-color: #ff00ff;
+            background-color: #00ccff;
+            transform: scale(1.1);
         }
-
-        .form-control {
+        .table-container {
+            margin-top: 30px;
+        }
+        .table {
+            color: #ffffff;
+            background-color: #1a1a1a;
+            border-collapse: separate;
+            border-spacing: 0;
+        }
+        .table th, .table td {
+            padding: 10px;
+            border: 3px dashed #00ff99;
+            background: linear-gradient(145deg, #202020, #181818);
+        }
+        .table th {
+            color: #ff66cc;
+        }
+        .table td {
+            color: #00ffcc;
+        }
+        .table tr:hover td {
             background-color: #1f1f1f;
-            color: #00ff99;
-            border: 1px solid #ff00cc;
+            color: #ffcc00;
+        }
+        /* Bordures décoratives autour des sections */
+        #materials-section {
+            border: 2px dotted #ff66cc;
+            padding: 15px;
             border-radius: 10px;
-        }
-
-        .form-control:focus {
-            background-color: #333;
-            border-color: #ff66ff;
-            box-shadow: 0 0 5px rgba(255, 102, 255, 0.8);
-        }
-
-        .form-check-label {
-            color: #ff00cc;
-        }
-
-        .form-check-input {
-            background-color: #1f1f1f;
-            border: 1px solid #ff00cc;
-        }
-
-        .table-striped tbody tr:nth-of-type(odd) {
-            background-color: #333;
-        }
-
-        .table-striped tbody tr:nth-of-type(even) {
-            background-color: #222;
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -125,9 +107,11 @@
 
             <button type="submit" class="btn btn-primary">Calculer</button>
         </form>
+
+        <!-- Tableau -->
         <div class="table-container">
             <h3>Tableau des Matériaux</h3>
-            <table class="table table-striped">
+            <table class="table">
                 <thead>
                     <tr>
                         <th>Type</th>
