@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcul des Ondes - Trhacknon</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #121212;
+            color: #00ff99;
+        }
+        .container {
+            margin-top: 50px;
+            border: 2px solid #00ff99;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        h1 {
+            text-align: center;
+            color: #00ffcc;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Calcul des Ondes pour Orgonites</h1>
+        <form method="POST" action="/calculate">
+            <!-- Métaux -->
+            <h3>Métaux</h3>
+            <div class="mb-3">
+                <label for="cuivre" class="form-label">Cuivre (g)</label>
+                <input type="number" class="form-control" id="cuivre" name="cuivre">
+            </div>
+            <div class="mb-3">
+                <label for="aluminium" class="form-label">Aluminium (g)</label>
+                <input type="number" class="form-control" id="aluminium" name="aluminium">
+            </div>
+            <div class="mb-3">
+                <label for="fer" class="form-label">Fer (g)</label>
+                <input type="number" class="form-control" id="fer" name="fer">
+            </div>
+
+            <!-- Cristaux -->
+            <h3>Cristaux</h3>
+            <div class="mb-3">
+                <label for="quartz" class="form-label">Cristal de quartz (g)</label>
+                <input type="number" class="form-control" id="quartz" name="quartz">
+            </div>
+            <div class="mb-3">
+                <label for="amethyste" class="form-label">Améthyste (g)</label>
+                <input type="number" class="form-control" id="amethyste" name="amethyste">
+            </div>
+            <div class="mb-3">
+                <label for="fluorite" class="form-label">Fluorite (g)</label>
+                <input type="number" class="form-control" id="fluorite" name="fluorite">
+            </div>
+
+            <!-- Pierres -->
+            <h3>Pierres</h3>
+            <div class="mb-3">
+                <label for="obsidienne" class="form-label">Obsidienne (g)</label>
+                <input type="number" class="form-control" id="obsidienne" name="obsidienne">
+            </div>
+            <div class="mb-3">
+                <label for="tourmaline" class="form-label">Tourmaline (g)</label>
+                <input type="number" class="form-control" id="tourmaline" name="tourmaline">
+            </div>
+            <div class="mb-3">
+                <label for="shungite" class="form-label">Shungite (g)</label>
+                <input type="number" class="form-control" id="shungite" name="shungite">
+            </div>
+
+            <!-- Résine -->
+            <h3>Résine</h3>
+            <div class="mb-3">
+                <label for="resine" class="form-label">Résine organique (g)</label>
+                <input type="number" class="form-control" id="resine" name="resine">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Calculer</button>
+        </form>
+    </div>
+</body>
+</html>
