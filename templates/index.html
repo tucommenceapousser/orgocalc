@@ -11,31 +11,79 @@
             color: #00ff99;
             font-family: Arial, sans-serif;
         }
+
         .container {
             margin-top: 50px;
-            border: 2px solid #00ff99;
+            border: 2px solid #ff00ff;
             padding: 20px;
-            border-radius: 10px;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(255, 0, 255, 0.5);
         }
+
         h1, h3 {
             text-align: center;
-            color: #00ffcc;
+            color: #ff66ff;
+            text-shadow: 2px 2px 5px #00ff99;
         }
+
         .table-container {
             margin-top: 30px;
+            border-top: 2px solid #00ffff;
+            padding-top: 20px;
         }
+
         .table {
             color: #00ff99;
+            border: 1px solid #ff00ff;
         }
+
         .table th, .table td {
-            border: 1px solid #00ff99;
+            border: 1px solid #ff00ff;
         }
+
         .form-label {
-            color: #00ffcc;
+            color: #ff00cc;
         }
+
         .btn-primary {
             background-color: #00ff99;
             border-color: #00ff99;
+            transition: background-color 0.3s;
+        }
+
+        .btn-primary:hover {
+            background-color: #ff00ff;
+            border-color: #ff00ff;
+        }
+
+        .form-control {
+            background-color: #1f1f1f;
+            color: #00ff99;
+            border: 1px solid #ff00cc;
+            border-radius: 10px;
+        }
+
+        .form-control:focus {
+            background-color: #333;
+            border-color: #ff66ff;
+            box-shadow: 0 0 5px rgba(255, 102, 255, 0.8);
+        }
+
+        .form-check-label {
+            color: #ff00cc;
+        }
+
+        .form-check-input {
+            background-color: #1f1f1f;
+            border: 1px solid #ff00cc;
+        }
+
+        .table-striped tbody tr:nth-of-type(odd) {
+            background-color: #333;
+        }
+
+        .table-striped tbody tr:nth-of-type(even) {
+            background-color: #222;
         }
     </style>
 </head>
@@ -69,7 +117,6 @@
                     <label for="aluminium" class="form-label">Aluminium (g)</label>
                     <input type="number" class="form-control" id="aluminium" name="aluminium">
                 </div>
-                <!-- Ajoutez les autres champs ici -->
                 <div class="mb-3">
                     <label for="resine" class="form-label">Résine organique (g)</label>
                     <input type="number" class="form-control" id="resine" name="resine">
