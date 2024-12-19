@@ -16,7 +16,7 @@
             padding: 20px;
             border-radius: 10px;
         }
-        h1 {
+        h1, h3 {
             text-align: center;
             color: #00ffcc;
         }
@@ -28,6 +28,12 @@
         }
         .table th, .table td {
             border: 1px solid #00ff99;
+        }
+        .result {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 1.2em;
+            color: #00ffcc;
         }
     </style>
 </head>
@@ -89,6 +95,14 @@
 
             <button type="submit" class="btn btn-primary">Calculer</button>
         </form>
+
+        <!-- Résultat -->
+        <div class="result">
+            {% if result %}
+                <h3>Résultat du Calcul :</h3>
+                <p>{{ result }}</p>
+            {% endif %}
+        </div>
 
         <!-- Tableau des matériaux -->
         <div class="table-container">
